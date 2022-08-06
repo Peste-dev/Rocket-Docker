@@ -9,5 +9,5 @@ async fn rocket() -> _ {
 
 #[get("/")]
 pub(crate) async fn index() -> String {
-    "Hello, world!".to_string()
+    "Hello, Dude!".to_string()
 }
