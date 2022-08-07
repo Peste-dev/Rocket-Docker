@@ -16,7 +16,7 @@ COPY --from=builder /rocket-docker/Rocket.toml ${APP}/Rocket.toml
 
 WORKDIR ${APP}
 
-EXPOSE 8000
+EXPOSE 80
 
 CMD ["./rocket-docker"]
 
