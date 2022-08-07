@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  api:
+    container_name: api
+    restart: on-failure
+    build: .
+    ports:
+      - "80:80"
+    networks:
+      - rocket-network
+    volumes:
+      - ./:/app
+      - api_volume:/app/target
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+
+  db:
+    container_name: db
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    networks:
+      - rocket-network
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+    env_file:
+      - ./.env
+
+networks:
+  rocket-network:
+    name: rocket-network
+    driver: bridge
+
+volumes:
+  db_volume:
+  api_volume:

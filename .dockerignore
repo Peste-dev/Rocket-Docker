@@ -1,0 +1,8 @@
+migrations
+target
+.dockerignore
+.env
+.env.example
+.git
+.gitignore
+README.md
